@@ -1,8 +1,8 @@
 @extends('admin.master')
 @section('content')
-             <div class="row">
+             <div class="row mt-3">
                    <div class="col-12">
-                       <div class="card mt-4">
+                       <div class="card">
                              <div class="card-header">
                                   <h4>Category list</h4>
                              </div>
@@ -29,14 +29,21 @@
                                             <td> {{$item->description}} </td>
                                             <td> <img src="{{asset($item->image)}}" width="50px" alt="" srcset=""> </td>
                                             <td>
-                                                 <a href="" class="btn btn-sm btn-success">Edit</a>
-                                                 <a href="" class="btn btn-sm btn-success">Edit</a>
+                                                 <a href="{{route('admin.category.edit',Crypt::encryptString($item->id))}}" class="btn btn-sm btn-success"><i class="fa-solid fa-pen-to-square text-light"></i></a>
+                                                 <form action="{{route('admin.category.destroy',$item->id)}}" method="post" class="d-inline-block">
+                                                  @csrf
+                                                  @method('delete')
+                                                      <button type="submit" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash text-light"></i></button>
+                                                 </form>
                                             </td>
 
                                           </tr>
                                           @endforeach
 
-
+                                          @else 
+                                           <tr>
+                                                 <td colspan="5"> <h5 class="text-success">No Data Found</h5> </td>
+                                           </tr>
                                           @endif
                                        
                                         </tbody>

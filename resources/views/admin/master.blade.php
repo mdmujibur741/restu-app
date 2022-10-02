@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/asset/css/adminlte.min.css')}}">
+  {{-- tostr --}}
+  <link rel="stylesheet" href="{{asset('admin/asset/plugins/toastr/toastr.min.css')}}">
   <style>
              .bg{
                     background: #0a0a9e !important;
@@ -63,5 +65,15 @@
 <!-- fontAwesome -->
 <script src="{{asset('admin/asset/plugins/fontawesome.min.js')}}"></script>
 
+{{-- tostrs --}}
+<script src="{{asset('admin/asset/plugins/toastr/toastr.min.js')}}"></script>
+<script>
+            @if(Session::has('success'))
+                toastr.success("{{ Session::get('success') }}");
+            @endif
+            @if(Session::has('delete'))
+                toastr.delete("{{ Session::get('delete') }}");
+            @endif
+</script>
 </body>
 </html>
