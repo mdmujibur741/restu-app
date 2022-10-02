@@ -1,121 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.svg"
-      type="image/x-icon"
-    />
-    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard 3</title>
 
-    <!-- ========== All CSS files linkup ========= -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('admin/assets/css/lineicons.css')}}" />
-    <link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}" />
-  </head>
-  <body>
-    <!-- ======== sidebar-nav start =========== -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{asset('admin/asset/plugins/fontawesome.min.css')}}">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('admin/asset/css/adminlte.min.css')}}">
+  <style>
+             .bg{
+                    background: #0a0a9e !important;
+                   
+             }
+  </style>
+</head>
 
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+             @include('admin.partial.topnav')
+  <!-- /.navbar -->
 
-    @include('admin.partial.sidenav')
+           @include('admin.partial.sidenav')
 
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  
 
-    <div class="overlay"></div>
-    <!-- ======== sidebar-nav end =========== -->
-
-    <!-- ======== main-wrapper start =========== -->
-    <main class="main-wrapper">
-      <!-- ========== header start ========== -->
-         @include('admin.partial.topnav')
-      <!-- ========== header end ========== -->
-
-      <!-- ========== section start ========== -->
-      <section class="section">
-        <div class="container-fluid">
-   
-          <div class="row mt-4">
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon purple">
-                  <i class="lni lni-cart-full"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">New Orders</h6>
-                  <h3 class="text-bold mb-10">34567</h3>
-                  <p class="text-sm text-success">
-                    <i class="lni lni-arrow-up"></i> +2.00%
-                    <span class="text-gray">(30 days)</span>
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon success">
-                  <i class="lni lni-dollar"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">Total Income</h6>
-                  <h3 class="text-bold mb-10">$74,567</h3>
-                  <p class="text-sm text-success">
-                    <i class="lni lni-arrow-up"></i> +5.45%
-                    <span class="text-gray">Increased</span>
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon primary">
-                  <i class="lni lni-credit-cards"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">Total Expense</h6>
-                  <h3 class="text-bold mb-10">$24,567</h3>
-                  <p class="text-sm text-danger">
-                    <i class="lni lni-arrow-down"></i> -2.00%
-                    <span class="text-gray">Expense</span>
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="icon-card mb-30">
-                <div class="icon orange">
-                  <i class="lni lni-user"></i>
-                </div>
-                <div class="content">
-                  <h6 class="mb-10">New User</h6>
-                  <h3 class="text-bold mb-10">34567</h3>
-                  <p class="text-sm text-danger">
-                    <i class="lni lni-arrow-down"></i> -25.00%
-                    <span class="text-gray"> Earning</span>
-                  </p>
-                </div>
-              </div>
-              <!-- End Icon Cart -->
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+                
+        @yield('content')
         
-      <!-- ========== footer end =========== -->
-    </main>
-    <!-- ======== main-wrapper end =========== -->
+      </div>
+      <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-    <!-- ========= All Javascript files linkup ======== -->
-    <script src="{{asset('admin/assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('admin/assets/js/main.js')}}"></script>
 
 
-  </body>
+  
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="{{asset('admin/asset/plugins/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{asset('admin/asset/plugins/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE -->
+<script src="{{asset('admin/asset/js/adminlte.js')}}"></script>
+<!-- fontAwesome -->
+<script src="{{asset('admin/asset/plugins/fontawesome.min.js')}}"></script>
+
+</body>
 </html>
