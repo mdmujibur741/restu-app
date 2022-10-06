@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->integer('guests');
-            $table->string('status')->default('pending');
-            $table->string('location');
+            $table->integer('status');
+            $table->integer('location');
             $table->timestamps();
         });
     }

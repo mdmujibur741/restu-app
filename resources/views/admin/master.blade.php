@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{asset('admin/asset/plugins/toastr/toastr.min.css')}}">
   <style>
              .bg{
-                    background: #0a0a9e !important;
+                    background: #0d0258 !important;
                    
              }
   </style>

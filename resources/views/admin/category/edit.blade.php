@@ -23,7 +23,7 @@
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Image</label>
                             <input class="form-control" type="file" id="formFile" name="image">
-                             <img src="{{asset($category->image)}}" class="float-right" alt="" srcset="" width="200px" height="120px">
+                             <img src="{{asset($category->image)}}" class="float-right img-thumbnail" alt="" srcset="" width="200px" height="120px">
                         </div>
 
                         <div class="mb-3">

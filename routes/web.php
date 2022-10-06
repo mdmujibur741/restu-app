@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\categoryController;
+use App\Http\Controllers\admin\locationController;
 use App\Http\Controllers\admin\menuController;
 use App\Http\Controllers\admin\reservationController;
+use App\Http\Controllers\admin\statusController;
 use App\Http\Controllers\admin\tableController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +31,11 @@ Route::get('dashboard', function(){
 
 Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group( function(){
          Route::resource('category', categoryController::class);
-         Route::resource('menu',menuController::class);
+         Route::resource('menu', menuController::class);
          Route::resource('table', tableController::class);
-         Route::resource('reservation',reservationController::class);
+         Route::resource('reservation', reservationController::class);
+         Route::resource('status',statusController::class);
+         Route::resource('location',locationController::class);
 });
 
 
