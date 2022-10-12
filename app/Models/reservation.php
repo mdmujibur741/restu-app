@@ -10,6 +10,7 @@ class reservation extends Model
     use HasFactory;
 
     protected $dates = ['resDate '];
+    protected $fillable = ['name','mobile','email','resDate','guests','table_id'];
 
     public function table()
     {

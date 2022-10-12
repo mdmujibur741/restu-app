@@ -29,11 +29,11 @@
                                             <td> {{$item->description}} </td>
                                             <td> <img src="{{asset($item->image)}}" class="img-thumbnail" width="50px" alt="" srcset=""> </td>
                                             <td>
-                                                 <a href="{{route('admin.category.edit',Crypt::encryptString($item->id))}}" class="btn btn-sm btn-success"><i class="fa-solid fa-pen-to-square text-light"></i></a>
+                                                 <a href="{{route('admin.category.edit',Crypt::encryptString($item->id))}}" class="btn btn-sm btn-success rounded-lg"><i class="fa-solid fa-pen-to-square text-light"></i></a>
                                                  <form action="{{route('admin.category.destroy',$item->id)}}" method="post" class="d-inline-block">
                                                   @csrf
                                                   @method('delete')
-                                                      <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa-solid fa-trash text-light"></i></button>
+                                                      <button type="submit" class="btn btn-sm btn-danger rounded-lg" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa-solid fa-trash text-light"></i></button>
                                                  </form>
                                             </td>
 

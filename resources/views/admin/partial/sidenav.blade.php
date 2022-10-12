@@ -155,6 +155,17 @@
             </ul>
           </li>
 
+          
+          <li class="nav-item">
+            <a href="{{route('admin.special.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Special Event
+             
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a href="{{route('admin.status.index')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -175,6 +186,20 @@
               </p>
             </a>
           </li>
+
+          
+          <li class="nav-item">
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+
+              <a href="route('logout')" class="nav-link" onclick="event.preventDefault(); this.closest('form').submit();">
+                <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+                <p>Logout</p>
+            </a>
+          </form>
+          </li>
+
+   
        
     
          

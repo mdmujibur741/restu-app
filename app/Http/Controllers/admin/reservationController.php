@@ -9,6 +9,7 @@ use App\Models\status;
 use App\Models\table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -22,7 +23,7 @@ class reservationController extends Controller
     public function create()
    {
          $status = status::where('slug','available')->first();
-        if($status){
+           if($status){
          $table = table::where('status_id', $status->id)->get();
          return view('admin.reservation.create',compact('table'));
         }
@@ -34,18 +35,10 @@ class reservationController extends Controller
                 if($request->guests > $table->guests ){
                    return redirect()->back()->with('valid','Please Select Guest Wise Table');
                 }
-                $requestDate = Carbon::parse($request->resDate);
-                $reserva = reservation::all();
-                foreach($reserva as $date){
-                    if($date->resDate == $requestDate){
-                         return redirect()->back()->with('valid','This table Already Booked Please Select Other Table!');
-                    }
-                }
 
 
                 $reservation = new reservation();
                 $reservation->name = $request->name;
-                $reservation->slug = Str::slug($request->name,'-');
                 $reservation->email = $request->email;
                 $reservation->mobile = $request->mobile;
                 $reservation->guests = $request->guests;
@@ -54,5 +47,42 @@ class reservationController extends Controller
                 $reservation->save();
                 Session::flash('success' , 'Reservation Add Successfully!');
                 return redirect()->back();
+   }
+
+   public function edit($editId)
+   {
+         $id = Crypt::decryptString($editId);
+         $reservation = reservation::find($id);
+         $table = table::all();
+         return view('admin.reservation.edit',compact('reservation','table'));
+   }
+
+   public function update(Request $request, $id)
+   {
+      $table = table::find($request->table_id);
+      if($request->guests > $table->guests ){
+         return redirect()->back()->with('valid','Please Select Guest Wise Table');
+      }
+
+
+      $reservation = reservation::find($id);
+      $reservation->name = $request->name;
+      $reservation->email = $request->email;
+      $reservation->mobile = $request->mobile;
+      $reservation->guests = $request->guests;
+      $reservation->resDate = $request->resDate;
+      $reservation->table_id = $request->table_id;
+      $reservation->update();
+      Session::flash('success' , 'Reservation Update Successfully!');
+      return redirect()->route('admin.reservation.index');
+   }
+
+
+   public function destroy(Request $request, $id)
+   {
+        $reservation = reservation::find($id);
+        $reservation->delete();
+        Session::flash('success' , 'Reservation Delete Successfully!');
+        return redirect()->back();
    }
 }
