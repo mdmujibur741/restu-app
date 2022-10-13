@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\contact;
 use App\Models\menu;
 use App\Models\reservation;
+use App\Models\setting;
 use App\Models\Special;
 use App\Models\status;
 use App\Models\table;
@@ -20,6 +22,7 @@ class FrontendController extends Controller
     {
          $menu = menu::latest()->take(7)->get();
          $special = Special::latest()->take(4)->get();
+        
         return view('frontend.index',compact('menu','special'));
     }
 
@@ -82,6 +85,29 @@ class FrontendController extends Controller
         
            Session::flash('success', 'Your Reservation Ready');
            return redirect()->route('web.home');
+    }
+
+    public function contact()
+    {
+          return view('frontend.contact');
+    }
+
+    public function contactStore(Request $request)
+    {
+          $request->validate([
+               'name' => 'required',
+               'mobile' => 'required',
+               'message' => 'required',
+          ]);
+
+          $contact = new contact();
+          $contact->name = $request->name;
+          $contact->mobile = $request->mobile;
+          $contact->email = $request->email;
+          $contact->message = $request->message;
+          $contact->save();
+          Session::flash('success','Message Send Successfully!');
+          return redirect()->back();
     }
 
 

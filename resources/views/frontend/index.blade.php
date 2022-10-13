@@ -14,8 +14,8 @@
 					<div class="row justify-content-center">
 						<div class="col-md-9">
 							
-								<h1 class="white-text text-center">Welcome To Risotto Restaurant</h1>
-								<h4 class="white-text lead">Nec solet elaboraret eu, ea usu vidit accusam. Ea per legimus singulis percipitur. Graecis ullamcorper nec ex, vix euismod detraxit voluptaria at.</h4>
+								<h1 class="white-text text-center text-capitalize">Welcome To @if($settings->count() > 0){{$settings->restName}} @endif</h1>
+								<h4 class="white-text text-center lead"> @if($settings->count() > 0){{$settings->homeSubtitle}} @endif</h4>
 								<div class="text-center"><a href="{{route('web.stepOne')}}"><button class="main-button" style="background: #3555E3;">  Reservation Table</button></a></div>
 							
 						</div>
@@ -38,20 +38,20 @@
 
 					<!-- section header -->
 					<div class="section-header text-center">
-						<h4 class="text-light">About Us</h4>
-						<h2 class="text-light">The Risotto Restaurant</h2>
+						<h4 class="text-light">Menu</h4>
+						<h2 class="text-light">The @if($settings->count() > 0){{$settings->restName}} @endif</h2>
 					</div>
 					<!-- /section header -->
 
 					<!-- about content -->
 					<div class="col-md-5">
-						<h4 class="text-light">Welcome to Risotto Restaurant. Since 1988, Offering Traditional Dishes of the highest quality.</h4>
+						<h4 class="text-light">@if($settings->count() > 0){{$settings->menuTitle}} @endif </h4>
 					</div>
 					<!-- /menu content -->
 
 					<!-- menu content -->
 					<div class="col-md-7">
-						<p class="text-light">Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum. Oblique conclusionemque qui cu, eum no sonet putant. Eos cu nulla vidisse. Mazim oporteat eam ex, his ei audiam audire, affert corrumpit pri cu.</p>
+						<p class="text-light"> @if($settings->count() > 0){{$settings->menuDescription}} @endif </p>
 					</div>
 					<!-- /menu content -->
 
@@ -145,8 +145,8 @@
 
 					<!-- section header -->
 					<div class="section-header text-center">
-						<h4 class="text-light">Special Event</h4>
-						<h2 class="text-light">Upcoming Event</h2>
+						<h4 class="text-light">Upcoming Event</h4>
+						<h2 class="text-light text-uppercase"> @if($settings->count() > 0){{$settings->eventName}} @endif </h2>
 					</div>
 					<!-- /section header -->
 
@@ -163,7 +163,7 @@
 						</div>
 						<div class="event-content">
 							<p><i class="fa fa-clock-o"></i> {{$item->StartDateTime->format("H:i")}} - {{$item->EndTime->format("H:i")}}</p>
-							<h3 class="text-light"> {{$item->subtitle}} </h3>
+							<h3 class="text-light" > {{$item->subtitle}} </h3>
 							<p class="text-light"> {{$item->description}}</p>
 						</div>
 					</div>

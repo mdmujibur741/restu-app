@@ -63,7 +63,7 @@
                                 <a href="{{ route('web.stepOne') }}" class="nav-link text-light ">Reservation</a>
                             </li>
                             <li class="nav-item ps-md-2 mx-lg-2 ">
-                                <a class="nav-link text-light "> Contact </a>
+                                <a href="{{route('web.contact')}}" class="nav-link text-light "> Contact </a>
                             </li>
                            
                         </ul>
@@ -117,18 +117,12 @@
                 <!-- footer nav -->
                 <div class="col-md-6">
                     <nav class="footer-nav">
-                        <a href="index.html" class="btn btn-primary rounded-circle"><i
-                                class="fa fa-pinterest text-light" aria-hidden="true"></i></a>
-                        <a href="index.html" class="btn btn-info rounded-circle"><i
-                                class="fa fa-facebook-square text-light" aria-hidden="true"></i></a>
-                        <a href="index.html" class="btn btn-info rounded-circle"><i class="fa fa-twitter text-light"
-                                aria-hidden="true"></i></a>
-                        <a href="index.html" class="btn btn-success rounded-circle"><i
-                                class="fa fa-google-plus-official text-light" aria-hidden="true"></i></a>
-                        <a href="index.html" class="btn btn-success rounded-circle"><i
-                                class="fa fa-linkedin-square text-light" aria-hidden="true"></i></a>
-                        <a href="index.html" class="btn btn-success rounded-circle"><i
-                                class="fa fa-instagram text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->pinterest}} @endif" target="blank" class="btn btn-info rounded-circle"><i class="fa fa-pinterest text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->facebook}} @endif" target="blank" class="btn btn-primary rounded-circle"><i class="fa fa-facebook-square text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->twitter}} @endif" target="blank" class="btn btn-info rounded-circle"><i class="fa fa-twitter text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->eventName}} @endif" target="blank" class="btn btn-warning rounded-circle"><i class="fa fa-google-plus-official text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->linkedin}} @endif" target="blank" class="btn btn-success rounded-circle"><i class="fa fa-linkedin-square text-light" aria-hidden="true"></i></a>
+                        <a href="@if($settings->count() > 0){{$settings->instagram}} @endif" target="blank" class="btn btn-light rounded-circle"><i class="fa fa-instagram text-success" aria-hidden="true"></i></a>
 
 
                     </nav>

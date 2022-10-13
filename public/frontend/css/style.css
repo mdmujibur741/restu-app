@@ -13,18 +13,14 @@ Fonts: Quicksand, Cabin, Dancing Script
 Table OF Contents
 ------------------------------------
 1 > General
-2 > Navigation
-3 > Home
-4 > About
-5 > Menu
-6 > Reservation
-7 > Opening
-8 > Events
-9 > Contact
-10 > Footer
-11 > Blog Post
-12 > Responsive
-13 > Preloader
+2 > Home
+3 > Menu
+4 > Reservation
+5 > Events
+6 > Contact
+7 > Footer
+8 > Responsive
+9 > Preloader
 ------------------------------------*/
 
 /*------------------------------------*\
@@ -32,7 +28,7 @@ Table OF Contents
 \*------------------------------------*/
 /* --- typography --- */
 body {
-	color:#969696;
+	color:#f2e9f0;
 	font-size:16px;
 	overflow-x:hidden;
 	font-family: 'Cabin', sans-serif;
@@ -350,101 +346,6 @@ textarea.input {
     right: -70px;
 }
 
-/*------------------------------------*\
-	Menu
-\*------------------------------------*/
-/* --- menu nav --- */
-.menu-nav {
-	text-align: center;
-}
-
-.menu-nav li {
-	position:relative;
-	display:inline-block;
-	margin-right:-4px;
-	border-bottom: 1px solid #ECECEC;
-	background-color: #FFF;
-}
-
-.menu-nav li + li {
-	-webkit-box-shadow:-1px 0px 0px 0px #ECECEC;
-	        box-shadow:-1px 0px 0px 0px #ECECEC;
-}
-
-.menu-nav li a {
-	font-family: 'Quicksand', sans-serif;
-	display: block;
-	padding: 30px;
-}
-
-.menu-nav li.active a {
-	color: #FFF;
-	background-color:#f36700;
-}
-
-.menu-nav li.active:before , .menu-nav li.active:after {
-	content:"";
-	width: 0;
-	height: 0;
-	position:absolute;
-	bottom:-19px;
-	border-style: solid;
-	z-index:1;
-}
-
-.menu-nav li.active:before {
-	left:0;
-	border-width: 20px 60px 0 0;
-	border-color: #f36500 transparent transparent;
-}
-
-.menu-nav li.active:after {
-	right:0;
-	border-width: 0 60px 20px 0;
-	border-color: transparent #f36500 transparent ;
-}
-
-/* --- menu content --- */
-/* #menu-content {
-	overflow:auto;
-	padding:30px 2% 30px;
-	background-color:#FFF;
-}
-
-.single-dish + .single-dish {
-	margin-top:30px;
-}
-
-.single-dish .single-dish-heading {
-	position:relative;
-	z-index:10;
-}
-
-.single-dish .single-dish-heading:before {
-	content:"";
-	display:block;
-	position:relative;
-	top:25px;
-	height:1px;
-	width:100%;
-	border-top:1px dashed #151515;
-	z-index:-1;
-}
-
-.single-dish .name {
-	display: inline-block;
-	font-family:'Cabin', sans-serif;
-	background-color: #FFF;
-	padding-right: 10px;
-	font-weight:400;
-}
-
-.single-dish .price {
-	float:right;
-	background-color:#FFF;
-	padding-left: 10px;
-	color:#f36700;
-} */
 
 /*------------------------------------*\
 	Reservation
@@ -553,12 +454,9 @@ textarea.input {
 /*------------------------------------*\
 	Contact
 \*------------------------------------*/
-#contact #map {
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
-	width:50%;
+#contact .contact_form  {
+	
+	background: linear-gradient(rgba(163, 14, 14, 0.9),rgba(42, 10, 186, 0.8));
 }
 
 /*------------------------------------*\
@@ -585,6 +483,7 @@ textarea.input {
 .footer-nav a:hover , .footer-nav a:focus {
 	color:#f36500;
 }
+
 
 /*------------------------------------*\
 	Blog Post
